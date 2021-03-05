@@ -27,6 +27,7 @@ Usage
 
 Once the extension is installed, simply use it in your code by  :
 
+#### Controller
 ```php
 namespace app\controllers;
 
@@ -35,19 +36,19 @@ use silentlun\wxpay\WxPay;
 
 class SiteController extends Controller
 {
-	public $wxpayConfig = [
-		'appid' => '公众号ID',
-		'mch_id' => '商户号ID',
-		'key' => '商户KEY',
-		'app_secret' => '公众号SECRET',
-	];
+    public $wxpayConfig = [
+        'appid' => '公众号ID',
+        'mch_id' => '商户号ID',
+        'key' => '商户KEY',
+        'app_secret' => '公众号SECRET',
+    ];
     public function actionPay()
     {
-		$order = []; // 订单信息
+        $order = []; // 订单信息
         $payment = new WxPay($this->wxpayConfig);
-		$result = $payment->createMiniPay($order);
-		Yii::$app->response->format = \yii\web\Response::FORMAT_JSON;
-		return $payment->GetJsApiParameters($result);
+        $result = $payment->createMiniPay($order);
+        Yii::$app->response->format = \yii\web\Response::FORMAT_JSON;
+        return $payment->GetJsApiParameters($result);
     }
 }
 ```
