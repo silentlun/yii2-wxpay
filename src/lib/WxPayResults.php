@@ -83,6 +83,8 @@ class WxPayResults extends WxPayDataBase
 		$obj->FromArray($array);
 		if($noCheckSign == false){
 			$obj->CheckSign($config);
+		}else{
+		    $obj->SetSign($config);
 		}
         return $obj;
 	}

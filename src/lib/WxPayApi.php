@@ -88,6 +88,7 @@ class WxPayApi
 		    $prePayParams['noncestr']	= $result['nonce_str'];
 		    $prePayParams['package']	= 'Sign=WXPay';
 		    $prePayParams['timestamp']	= time();
+		    $prePayParams['sign']	= '';
 		    //echo json_encode($prePayParams);
 		    $result = WxPayResults::InitFromArray($config, $prePayParams, true)->GetValues();
 		}
